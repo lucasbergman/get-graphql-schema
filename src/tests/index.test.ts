@@ -75,10 +75,10 @@ describe('core function works as expected', () => {
     const fsExistsSyncMock = jest.spyOn(fs, 'existsSync').mockReturnValue(false)
     const mkdirpSyncMock = jest
       .spyOn(mkdirp, 'sync')
-      .mockImplementation(() => {})
+      .mockReturnValue(undefined as any)
     const fsWriteFileSyncMock = jest
       .spyOn(fs, 'writeFileSync')
-      .mockImplementation(() => {})
+      .mockReturnValue(undefined)
 
     /**
      * Execution
@@ -103,10 +103,10 @@ describe('core function works as expected', () => {
     const fsExistsSyncMock = jest.spyOn(fs, 'existsSync').mockReturnValue(true)
     const mkdirpSyncMock = jest
       .spyOn(mkdirp, 'sync')
-      .mockImplementation(() => {})
+      .mockReturnValue(undefined as any)
     const fsWriteFileSyncMock = jest
       .spyOn(fs, 'writeFileSync')
-      .mockImplementation(() => {})
+      .mockReturnValue(undefined)
 
     /**
      * Execution

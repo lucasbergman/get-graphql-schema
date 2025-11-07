@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import fetch = require('node-fetch')
 import * as fs from 'fs'
 import * as path from 'path'
 import meow = require('meow')

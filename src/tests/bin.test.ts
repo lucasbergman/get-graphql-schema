@@ -52,7 +52,7 @@ describe('bin', () => {
     const getHeadersFromInputMock = jest.spyOn(index, 'getHeadersFromInput')
     const getRemoteSchemaMock = jest
       .spyOn(index, 'getRemoteSchema')
-      .mockResolvedValue({ status: 'err', message: 'pass' })
+      .mockReturnValue(Promise.resolve({ status: 'err' as const, message: 'pass' }))
     const printToFileMock = jest.spyOn(index, 'printToFile')
 
     /**
@@ -88,7 +88,7 @@ describe('bin', () => {
     const getHeadersFromInputMock = jest.spyOn(index, 'getHeadersFromInput')
     const getRemoteSchemaMock = jest
       .spyOn(index, 'getRemoteSchema')
-      .mockResolvedValue({ status: 'ok', schema: 'pass' })
+      .mockReturnValue(Promise.resolve({ status: 'ok' as const, schema: 'pass' }))
     const printToFileMock = jest.spyOn(index, 'printToFile')
 
     /**
@@ -124,10 +124,10 @@ describe('bin', () => {
     const getHeadersFromInputMock = jest.spyOn(index, 'getHeadersFromInput')
     const getRemoteSchemaMock = jest
       .spyOn(index, 'getRemoteSchema')
-      .mockResolvedValue({ status: 'ok', schema: 'pass' })
+      .mockReturnValue(Promise.resolve({ status: 'ok' as const, schema: 'pass' }))
     const printToFileMock = jest
       .spyOn(index, 'printToFile')
-      .mockImplementation(() => false)
+      .mockReturnValue({ status: 'ok' as const, path: 'test-path' })
 
     /**
      * Execution
@@ -161,10 +161,10 @@ describe('bin', () => {
     const getHeadersFromInputMock = jest.spyOn(index, 'getHeadersFromInput')
     const getRemoteSchemaMock = jest
       .spyOn(index, 'getRemoteSchema')
-      .mockResolvedValue({ status: 'ok', schema: 'pass' })
+      .mockReturnValue(Promise.resolve({ status: 'ok' as const, schema: 'pass' }))
     const printToFileMock = jest
       .spyOn(index, 'printToFile')
-      .mockImplementation(() => false)
+      .mockReturnValue({ status: 'ok' as const, path: 'test-path' })
 
     /**
      * Execution
